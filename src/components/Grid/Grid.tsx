@@ -10,13 +10,15 @@ import {
   getRow,
 } from "../../utils/NodePosition";
 import { usePillDrop } from "../../hooks/PillDrop";
-import { useManageRotation } from "../../hooks/manageRotation";
+import { useManageRotation } from "../../hooks/ManageRotation";
+import { useGenerateViruses } from "../../hooks/GenerateViruses";
 
 type GridProps = {};
 
 const Grid: FC<GridProps> = () => {
   const styles = useStyles();
 
+  // refactor these thingys
   const { setMed, med, setMed2, med2 } = usePillDrop();
 
   const moveNextCol = () => {

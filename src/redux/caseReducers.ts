@@ -4,6 +4,6 @@ import { SettingsState } from ".";
 export const setNumOfViruses: CaseReducer<
   SettingsState,
   PayloadAction<number>
-> = (_, { payload }) => {
-  //   return payload;
+> = (state, { payload }) => {
+  state.numOfViruses = payload;
 };
