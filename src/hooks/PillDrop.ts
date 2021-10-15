@@ -23,4 +23,6 @@ export const usePillDrop = () => {
     }, 1000);
     return () => clearInterval(pillTimer);
   }, []);
+
+  return { setMed, med, setMed2, med2 };
 };

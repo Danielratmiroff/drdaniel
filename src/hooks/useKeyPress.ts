@@ -1,7 +1,12 @@
 import { FC, useEffect, KeyboardEvent, useState, createRef } from "react";
 
-export const useKeyPress = (targetKey, handler) => {
-  const downHandler = ({ key }) => {
+type UseKeyPressParms = {
+  targetKey: string;
+  handler: () => void;
+};
+
+export const useKeyPress = ({ targetKey, handler }: UseKeyPressParms) => {
+  const downHandler = ({ key }: any) => {
     if (key === targetKey) {
       handler();
     }
