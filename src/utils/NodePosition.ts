@@ -12,12 +12,16 @@ export const getNextRow = (node: string): number => {
   return getRow(node) + 1;
 };
 
+export const getPrevRow = (node: string): number => {
+  return getRow(node) - 1;
+};
+
 export const getNextCol = (node: string): string => {
   const colIndex = indexes.indexOf(getCol(node));
-  return `${indexes[colIndex + 1]}${getRow(node)}`;
+  return indexes[colIndex + 1];
 };
 
 export const getPrevCol = (node: string): string => {
   const colIndex = indexes.indexOf(getCol(node));
-  return `${indexes[colIndex - 1]}${getRow(node)}`;
+  return indexes[colIndex - 1];
 };

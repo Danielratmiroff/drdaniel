@@ -1,7 +1,9 @@
 import { CaseReducer, PayloadAction } from "@reduxjs/toolkit";
+import { SettingsState } from ".";
 
-export const increment:CaseReducer = (state) =>  state.value++;
-
-export const decrement:CaseReducer = (state) =>  state.value--;
-
-export const incrementByAmount:CaseReducer<any, PayloadAction<number>> = (state, {payload}) =>  state.value += payload;
+export const setNumOfViruses: CaseReducer<
+  SettingsState,
+  PayloadAction<number>
+> = (_, { payload }) => {
+  //   return payload;
+};

@@ -1,11 +1,15 @@
 import { FC, KeyboardEvent, useState } from "react";
+import { setNumOfViruses } from "../src/redux";
 import Grid from "./components/Grid/Grid";
+import { useAppDispatch } from "./redux/store";
 
 const App: FC = () => {
-  // true is right - false left
-  const [keyMove, setKeyMove] = useState<boolean | undefined>();
+  const numOfViruses = 5;
+  const dispatch = useAppDispatch();
 
-  return <Grid moveTo={keyMove} />;
+  dispatch(setNumOfViruses(numOfViruses));
+
+  return <Grid />;
 };
 
 export default App;

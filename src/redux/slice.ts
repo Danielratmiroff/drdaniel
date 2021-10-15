@@ -1,22 +1,19 @@
 // src/slice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { increment, decrement, incrementByAmount } from './caseReducers';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { setNumOfViruses } from "./caseReducers";
+import { SettingsState } from ".";
 
-const initialState = {
-  value: 0,
+const initialState: SettingsState = {
+  numOfViruses: 0,
 };
 
-export const name = 'counter';
+export const name = "settings";
 
 export const slice = createSlice({
   name,
   initialState,
-  // The `reducers` field allows us define reducers and generate associated actions
   reducers: {
-    increment,
-    decrement,
-    // The `PayloadAction` type allows us to declare the contents of `action.payload`
-    incrementByAmount,
+    setNumOfViruses,
   },
 });
 

@@ -1,6 +1,9 @@
-import { createSelector } from 'reselect';
-import { RootState } from './store';
+import { createSelector } from "reselect";
+import { RootState } from "./store";
 
-const increment = (state: RootState) => state.counter;
+const settings = (state: RootState) => state.settings;
 
-export const getIncrement = createSelector(increment, (state) => state.value);
+export const getNumOfViruses = createSelector(
+  settings,
+  (state) => state.numOfViruses
+);

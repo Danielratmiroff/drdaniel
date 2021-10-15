@@ -3,10 +3,9 @@ import { indexes } from "../temporary.json";
 import { getCol, getNextRow } from "../utils/NodePosition";
 
 export const usePillDrop = () => {
-  const [med, setMed2] = useState<string>(
-    `${indexes[indexes.length / 2 - 1]}0`
-  );
-  const [med2, setMed] = useState<string>(`${indexes[indexes.length / 2]}0`);
+  // refactor take this out from drop
+  const [med, setMed] = useState<string>(`${indexes[indexes.length / 2 - 1]}0`);
+  const [med2, setMed2] = useState<string>(`${indexes[indexes.length / 2]}0`);
 
   useEffect(() => {
     const pillTimer = setInterval(() => {
@@ -21,6 +20,7 @@ export const usePillDrop = () => {
           : prev;
       });
     }, 1000);
+
     return () => clearInterval(pillTimer);
   }, []);
 

@@ -3,27 +3,33 @@ import { useStyles } from "./GridStyles";
 import Node from "../Node";
 import { indexes } from "../../temporary.json";
 import { useKeyPress } from "../../hooks/useKeyPress";
-import { getNextCol, getPrevCol, getNextRow } from "../../utils/NodePosition";
+import {
+  getNextCol,
+  getPrevCol,
+  getNextRow,
+  getRow,
+} from "../../utils/NodePosition";
 import { usePillDrop } from "../../hooks/PillDrop";
+import { useManageRotation } from "../../hooks/manageRotation";
 
-type GridProps = {
-  moveTo: boolean | undefined;
-};
+type GridProps = {};
 
-const Grid: FC<GridProps> = ({ moveTo }) => {
+const Grid: FC<GridProps> = () => {
   const styles = useStyles();
 
   const { setMed, med, setMed2, med2 } = usePillDrop();
 
   const moveNextCol = () => {
-    setMed((prev) => getNextCol(prev));
-    setMed2((prev) => getNextCol(prev));
+    setMed((prev) => `${getNextCol(prev)}${getRow(prev)}`);
+    setMed2((prev) => `${getNextCol(prev)}${getRow(prev)}`);
   };
 
   const movePrevCol = () => {
-    setMed((prev) => getPrevCol(prev));
-    setMed2((prev) => getPrevCol(prev));
+    setMed((prev) => `${getPrevCol(prev)}${getRow(prev)}`);
+    setMed2((prev) => `${getPrevCol(prev)}${getRow(prev)}`);
   };
+
+  useManageRotation(setMed, setMed2);
 
   // Listen to key presses
   useKeyPress({ targetKey: "a", handler: movePrevCol });
